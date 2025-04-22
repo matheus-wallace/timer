@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import History from './pages/History';
+import Home from './pages/home/Home';
+import History from './pages/History/History';
 import DefaultLayout from './layouts/DefaultLayout';
 const Router = () => {
   return (
