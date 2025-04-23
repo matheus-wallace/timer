@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import zod from 'zod';
 import { useEffect, useState } from 'react';
-import { differenceInSeconds, set } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Please enter a task'),
@@ -40,7 +40,7 @@ const Home = () => {
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: any;
     if (activeCycle) {
       interval = setInterval(() => {
         setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate));
@@ -144,6 +144,7 @@ const Home = () => {
           </StopCountdownButton>
         ) : (
           <StartCountdownButton disabled={isSubmitDisabled} type="submit">
+            <Play size={24} />
             Começar
           </StartCountdownButton>
         )}
