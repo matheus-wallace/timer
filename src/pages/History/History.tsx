@@ -24,7 +24,7 @@ const History = () => {
                 <tr key={cycle.id}>
                   <td>{cycle.task}</td>
                   <td>{cycle.minutesAmount} minutes</td>
-                  <td>{formatDistanceToNow(cycle.startDate, { addSuffix: true })}</td>
+                  <td>{formatDistanceToNow(new Date(cycle.startDate), { addSuffix: true })}</td>
                   <td>
                     {cycle.finishedDate && <Status statusColor="green">Finished</Status>}
                     {cycle.interruptedDate && <Status statusColor="red">Interrupted</Status>}
